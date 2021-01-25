@@ -13,8 +13,10 @@
 # limitations under the License.
 
 # aapt is not able to read app::actionViewClass and app:actionProviderClass to produce proguard
-# keep rules. Add a commonly used SearchView to the keep list until b/109831488 is resolved.
+# keep rules. Add a commonly used SearchView and ShareActionProvider to the keep list until b/109831488 is resolved.
 -keep class androidx.appcompat.widget.SearchView { <init>(...); }
+-if class androidx.appcompat.widget.ShareActionProvider
+-keep class androidx.appcompat.widget.ShareActionProvider { <init>(...); }
 
 # Never inline methods, but allow shrinking and obfuscation.
 -keepclassmembernames,allowobfuscation,allowshrinking class androidx.appcompat.widget.AppCompatTextViewAutoSizeHelper$Impl* {
